@@ -1,0 +1,11 @@
+---
+- hosts: webservers
+  sudo: yes
+  gather_facts: no
+
+  tasks:
+  - name: including the ansible vault file 
+    include_vars: /root/ansible/demo9/vault.yaml
+
+  - name: create a user using the credentials in the vault
+    user: name={{ username }} password={{ password }} 
